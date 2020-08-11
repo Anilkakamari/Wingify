@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="js/bioep.js"></script>
+  <script type="text/javascript">
+    function clicked() {
+      var cookieValue = escape(document.myForm.name.value + ";");
+      console.log(cookieValue);
+      document.cookie = "name=" + cookieValue;
+      var cookieValue = escape(document.myForm.email.value + ";");
+      console.log(cookieValue);
+      document.cookie = "email=" + cookieValue;
+
+      var allcookies = unescape(document.cookie);
+      console.log(allcookies);
+
+
+    }
+    bioEp.init({
+      html: `
+      <div class="flex-container">
+        <div class="col-left">
+          <div class="content text-center">
+            <h2>Get $10 off when you sign up for</h2>
+            <h3>Savings, news, updates and more</h3>
+          </div>
+          <form name="myForm">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="your name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="email address" required>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" required value="newsletter">
+              <label for=""> Check this box to receive monthly newsletter</label>
+            </div>
+            <div class="text-center">
+              <input type="submit" onClick="clicked()" value="Sign Up" class="btn btn-submit"/>
+              <p class="privacy-policy">Privacy Policy</p>
+            </div>
+          </form>
+        </div>
+        <div class="col-right">
+          <div class="right-image">
+            <img src="images/Bigsale.png" class="img-responsive" alt="Bigsale">
+          </div>
+        </div>
+      </div>
+      `,
+      css: `#content {font-family: "Titillium Web", sans-serif; font-size: 14px;}
+      .flex-container{
+            background: #FED500;
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Titillium Web", sans-serif; font-size: 14px;
+            padding: 40px 0 40px 40px;
+        }
+        .text-center{
+          text-align: center;
+        }
+        .text-center h2,h3{
+          text-transform: uppercase;
+          margin: 0;
+          font-size: 1.4em;
+          line-height: 1.5;
+        }
+        .text-center h3{
+          font-weight: 500;
+        }
+        .col-left{
+            width: 60%;
+            float: left;
+        }
+        .col-right{
+            width: 40%;
+            float: left;
+        }
+        .col-right img{
+          width: 95%;
+        }
+        .form-group,.content{
+          margin-bottom: 10px;
+        }
+        .form-group{
+          display: flex;
+          align-items: center;
+        }
+        .form-control{
+          display: block;
+          width: 100%;
+          height: calc(2.5em + .75rem + 2px);
+          padding: .375rem .75rem;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          box-sizing: border-box;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        .btn-submit{
+          background: #000;
+          border: none;
+          color: #fff;
+          padding: 18px;
+          width: 100%;
+          text-transform: uppercase;
+          font-size: 16px;
+          display: block;
+          margin: 15px 0 10px;
+          cursor: pointer;
+        }
+        .right-image{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .privacy-policy{
+          font-size: 12px;
+          text-transform: uppercase;
+          text-decoration: underline;
+          margin: 0;
+          display: inline-block;
+        }
+        label{
+          font-size: 12px;
+          font-weight: 400;
+        }
+      `,
+      cookieExp: 0
+    });
+  </script>
+</head>
+
+<body>
+  <h2>After 5 seconds, move your mouse above this page </h2>
+</body>
+
+</html>
